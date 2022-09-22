@@ -6,7 +6,6 @@
 <section class="py-5">
     <div class="container px-2 px-lg-3 mt-5">
         <app-panier [fruits]="fruits"></app-panier>
-        <a routerLink="naruto">rolio</a>
         <div
             class="row card-group gy-4 gx-4 gx-lg-4 row-cols-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center">
             <app-card-item *ngFor="let fruit of fruits" [fruit]="fruit" [updateCommande]="updateCommande">
