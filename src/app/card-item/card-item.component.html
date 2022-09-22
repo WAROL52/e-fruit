@@ -1,0 +1,40 @@
+<div class="card h-100 ">
+    <!-- Sale badge-->
+    <div *ngIf="fruit.stock-fruit.unite<=0" class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+        stock Epuisé</div>
+    <!-- Product image-->
+    <img class="card-img-top img-fluid " [src]="fruit.img" alt="..." />
+    <!-- Product details-->
+    <div class="card-body p-4 "></div>
+    <!-- Product actions-->
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+        <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">{{fruit.nom}}</h5>
+            <!-- Product reviews-->
+            <div class="d-flex justify-content-center small text-warning mb-2">
+                <div class="bi-star-fill"></div>
+                <div class="bi-star-fill"></div>
+                <div class="bi-star-fill"></div>
+                <div class="bi-star-fill"></div>
+                <div class="bi-star-fill"></div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{repeter("❤️",fruit.aimer)+repeter("🤍",5-fruit.aimer)}} </li>
+                <li class="list-group-item">{{repeter("🌱",fruit.rare)+repeter("🥀",5-fruit.rare)}}</li>
+                <li class="list-group-item">stock: {{fruit.stock-fruit.unite}}</li>
+                <li class="list-group-item">
+                    <span class="text-muted text-decoration-line-through"> {{fruit.prix}} Ar</span>
+                    {{prixFinal}} Ar <br>
+                    <span class="badge bg-primary text-white ">-{{fruit.reduction}}%</span>
+                </li>
+            </ul>
+            <!-- Product price-->
+        </div>
+        <div class="text-center">
+            <button (click)="handleFruit()" [disabled]="fruit.stock-fruit.unite<=0"  class="btn btn-outline-dark mt-auto" href="#">
+                Ajouter au panier
+            </button>
+        </div>
+    </div>
+</div>
